@@ -2,6 +2,7 @@ group 'com.epam'
 version '1.0-SNAPSHOT'
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -13,4 +14,4 @@ test {
     useJUnitPlatform()
 }
 
-compileJava {}.dependsOn(':utils:publishToMavenLocal')
+compileJava.dependsOn(':utils:publishToMavenLocal')

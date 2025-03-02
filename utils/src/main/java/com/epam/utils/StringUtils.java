@@ -1,21 +1,10 @@
 package com.epam.utils;
-
+import org.apache.commons.lang3.math.NumberUtils;
 public class StringUtils {
     public static boolean isPositiveNumber(String str) {
-        if (str == null) {
-            return false;
+        if (NumberUtils.isCreatable(str)) {
+            return NumberUtils.createNumber(str).doubleValue() > 0;
         }
-        try {
-            int num = Integer.parseInt(str);
-            int firstLetter =  Integer.parseInt(str.substring(0, 1));
-            return num > 0 && firstLetter > 0;
-        } catch (NumberFormatException e) {
-            try {
-                double num = Double.parseDouble(str);
-                return num > 0;
-            } catch (NumberFormatException ex) {
-                return false;
-            }
-        }
+        return false;
     }
 }
